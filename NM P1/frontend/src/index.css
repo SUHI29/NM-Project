@@ -1,0 +1,83 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 15%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 222 47% 15%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 196 100% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 28% 25%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 170 80% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 27% 30%;
+    --input: 215 28% 25%;
+    --ring: 196 100% 47%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 196 100% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 15%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 215 27% 20%;
+    --sidebar-ring: 196 100% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card border border-border/50 bg-opacity-80 backdrop-blur-md rounded-xl shadow-lg;
+  }
+  
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::after {
+    @apply content-[''] absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl opacity-50 -z-10;
+  }
+  
+  .data-line {
+    @apply h-0.5 w-full bg-gradient-to-r from-primary to-secondary opacity-50 overflow-hidden relative;
+  }
+  
+  .data-line::after {
+    @apply content-[''] absolute top-0 left-0 h-full w-16 bg-white opacity-30 animate-data-flow;
+  }
+  
+  .particle {
+    @apply absolute rounded-full bg-primary/30 animate-particle-float;
+  }
+}
