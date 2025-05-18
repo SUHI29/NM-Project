@@ -1,0 +1,193 @@
+/* Animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes randomGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    20% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5); }
+    40% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    60% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.6); }
+    80% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(0); opacity: 0.5; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Background and Glassmorphism */
+.gradient-bg {
+    background: linear-gradient(270deg, #0F172A, #2A1A3F, #0F172A);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.glass-card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+/* Holographic Effect */
+.holographic-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(244, 114, 182, 0.2) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.holographic-card:hover::before {
+    transform: rotate(45deg) translate(20%, 20%);
+}
+
+.holographic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.3);
+}
+
+/* Neon and Glow Effects */
+.neon-text {
+    text-shadow: 0 0 5px rgba(244, 114, 182, 0.8), 0 0 10px rgba(244, 114, 182, 0.5);
+}
+
+.glow-button {
+    box-shadow: 0 0 15px rgba(244, 114, 182, 0.5);
+    transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 25px rgba(244, 114, 182, 0.8);
+}
+
+/* AQI Circle Enhancements */
+.aqi-circle {
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+}
+
+.aqi-circle-bg {
+    opacity: 1 !important; /* Ensure the circle background is fully opaque */
+}
+
+/* AQI Circle Glow Effects */
+.glow-aqi-green-500 {
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.6), 0 0 30px rgba(74, 222, 128, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 0s;
+}
+
+.glow-aqi-yellow-500 {
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.6), 0 0 30px rgba(250, 204, 21, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 0.2s;
+}
+
+.glow-aqi-orange-500 {
+    box-shadow: 0 0 15px rgba(251, 146, 60, 0.6), 0 0 30px rgba(251, 146, 60, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 0.4s;
+}
+
+.glow-aqi-red-500 {
+    box-shadow: 0 0 15px rgba(248, 113, 113, 0.6), 0 0 30px rgba(248, 113, 113, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 0.6s;
+}
+
+.glow-aqi-purple-500 {
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.6), 0 0 30px rgba(192, 132, 252, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 0.8s;
+}
+
+.glow-aqi-fuchsia-500 {
+    box-shadow: 0 0 15px rgba(244, 114, 182, 0.6), 0 0 30px rgba(244, 114, 182, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+.glow-aqi-gray-500 {
+    box-shadow: 0 0 15px rgba(107, 114, 128, 0.6), 0 0 30px rgba(107, 114, 128, 0.4);
+    animation: randomGlow 5s infinite ease-in-out;
+    animation-delay: 1.2s;
+}
+
+/* AQI Text Styling */
+.aqi-text {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Particle Background */
+.particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle-bg::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(244, 114, 182, 0.7);
+    border-radius: 50%;
+    animation: floatParticle 10s linear infinite;
+    animation-delay: 0s;
+    left: 10%;
+}
+
+.particle-bg::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(167, 139, 250, 0.7);
+    border-radius: 50%;
+    animation: floatParticle 15s linear infinite;
+    animation-delay: 5s;
+    left: 80%;
+}
+
+.particle-bg > span:nth-child(1) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: rgba(244, 114, 182, 0.5);
+    border-radius: 50%;
+    animation: floatParticle 12s linear infinite;
+    animation-delay: 2s;
+    left: 30%;
+}
+
+.particle-bg > span:nth-child(2) {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(167, 139, 250, 0.5);
+    border-radius: 50%;
+    animation: floatParticle 8s linear infinite;
+    animation-delay: 7s;
+    left: 60%;
+}
